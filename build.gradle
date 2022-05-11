@@ -1,0 +1,48 @@
+plugins {
+    id 'org.jetbrains.intellij' version '0.4.21'
+    id 'java'
+}
+
+group 'org.frozenwind'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    maven { url 'https://maven.aliyun.com/repository/central/'}
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/google/' }
+    maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+    maven { url 'https://jitpack.io' }
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.73'
+    compile group: 'cn.hutool', name: 'hutool-all', version: '5.3.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.8.0'
+    compile group: 'com.samskivert', name: 'jmustache', version: '1.15'
+    compile group: 'org.apache.maven', name: 'maven-model', version: '3.6.3'
+    testCompile group: 'junit', name: 'junit', version: '4.13'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version = '2020.2'
+    updateSinceUntilBuild false
+    plugins = ['java']
+}
+patchPluginXml {
+    changeNotes = """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

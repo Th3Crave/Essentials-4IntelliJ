@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>org.frozenwind.plugin.essentials</id>
+    <name>Essentials 4IntelliJ</name>
+    <vendor email="172016778@qq.com" url="blog.frozenwind.online">愁容骑士和1874</vendor>
+
+    <description><![CDATA[
+      <b>一款基于IntelliJ平台的插件</b>
+      <h3>English:</h3>
+      <ul>
+      <li>Essentials.</li>
+      </ul>
+      <h3>中文：</h3>
+      <ul>
+      <li>必需品。</li>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <idea-version since-build='181.0'/>
+    <depends optional="true" config-file="essentials-idea.xml">com.intellij.modules.java</depends>
+    <depends optional="true" config-file="essentials-goland.xml">com.intellij.modules.go</depends>
+    <depends optional="true" config-file="essentials-webstorm.xml">com.intellij.modules.webstorm</depends>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
